@@ -2,6 +2,7 @@ export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)
 
 alias rmv="rm -rf"
 set -o vi
+# hej
 
 alias rwfi="sudo service network-manager restart"
 
