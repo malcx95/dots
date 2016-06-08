@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/malcolm/TSEA83/TSEA83-Labs/lab4'
+let g:netrw_dirhist_2='/Users/malcolm/TSEA83/TSEA83-Labs/lab4/VGA_lab'
+let g:netrw_dirhist_3='/Users/malcolm/TSEA83/Projekt/assembler'
+let g:netrw_dirhist_4='/Users/malcolm/TSEA83/TSEA83-Labs/lab3'
+let g:netrw_dirhist_5='/Users/malcolm/TSEA83/Projekt/code'
