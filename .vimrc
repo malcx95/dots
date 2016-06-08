@@ -47,6 +47,7 @@ set shiftwidth=4
 syntax on
 set softtabstop=4
 set tabstop=4
+set expandtab
 set autoindent
 set number
 set directory=$HOME/.vim/swap//
