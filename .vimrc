@@ -14,11 +14,14 @@ Plugin 'rdnetto/YCM-Generator'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'Raimondi/delimitMate'
 Plugin 'unblevable/quick-scope'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'nvie/vim-flake8'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'jnurmine/Zenburn'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -34,9 +37,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "#####################-plugins-######################
 let g:Tex_DefaultTargetFormat='pdf'
-let g:livepreview_previewer = '/Applications/Preview.app/Contents/MacOS/Preview'
 let g:ycm_autoclose_preview_window_after_completion = 1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:SimpylFold_docstring_preview=1
 set enc=utf-8
 set smartindent
 set showmatch
@@ -62,3 +66,19 @@ set relativenumber
 set ignorecase
 set title
 set mouse=a
+set foldmethod=indent
+set foldlevel=99
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
