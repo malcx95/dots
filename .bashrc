@@ -5,7 +5,7 @@ alias slloop="~/slloop"
 alias rmv="rm -rf"
 alias pintoboot="pintos -v --qemu -- run"
 alias pintodebug="pintos -v --qemu --gdb -- run"
-alias piconnect="ssh pi@10.0.1.13"
+alias piconnect="ssh pi@192.168.1.180"
 set -o vi
 export PATH="/Users/malcolm/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
 export PATH="${HOME}/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
