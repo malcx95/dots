@@ -22,6 +22,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -63,6 +65,7 @@ set scrolloff=5
 set t_Co=256
 colorscheme vendetta
 set relativenumber
+set showcmd
 set ignorecase
 set title
 set mouse=a
