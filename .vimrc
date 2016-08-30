@@ -71,6 +71,7 @@ set title
 set mouse=a
 set foldmethod=indent
 set foldlevel=99
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
