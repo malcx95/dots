@@ -14,6 +14,7 @@ Plugin 'rdnetto/YCM-Generator'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'Raimondi/delimitMate'
 Plugin 'unblevable/quick-scope'
+Plugin 'rust-lang/rust.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
