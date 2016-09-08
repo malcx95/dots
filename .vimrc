@@ -79,6 +79,8 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
+hi Normal guibg=NONE ctermbg=NONE
+
 "py << EOF
 "import os
 "import sys
