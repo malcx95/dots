@@ -3,26 +3,8 @@ export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)
 alias ös="ls"
 alias slloop="~/slloop"
 alias rmv="rm -rf"
-alias pintoboot="pintos -v --qemu -- run"
-alias pintodebug="pintos -v --qemu --gdb -- run"
 alias piconnect="ssh pi@192.168.1.180"
 set -o vi
-export PATH="/Users/malcolm/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
-export PATH="${HOME}/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	#alias vim="DYLD_FORCE_FLAT_NAMESPACE=1 /Applications/MacVim.app/Contents/MacOS/Vim"
-	export PATH="/Users/malcolm/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
-	else
-		export PATH="${HOME}/TDDB68/tddb68-labs/pintos/src/utils/:${PATH}/"
-		alias emacs="emacs -nw"
-		make()
-		{
-		                                /usr/bin/make "$@" 2>&1 | sed -E -e "s/error/ $(echo -e "\\033[31m" ERROR "\\033[0m"/g)"   -e "s/warning/ $(echo -e "\\033[0;33m" WARNING "\\033[0m"/g)"
-		                                                                return ${PIPESTATUS[0]}
-		}
-	
-fi
 
 ltx() {
 	pdflatex $1 
@@ -45,13 +27,42 @@ up(){
   fi
   cd $d
 }
-alias pmakedisk='pintos-mkdisk fs.dsk 2'
-alias pformatdisk='pintos --qemu -v -- -f -q'
-alias prun='pintos --qemu -v -- run'
-alias pls='pintos --qemu -v -- ls'
-alias pcat='pintos --qemu -v -- cat'
-alias prm='pintos --qemu -v -- rm'
 
-pintocopy(){
-pintos --qemu -p $1 -a $2 -- -q
-}
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+if [ -x /usr/bin/mint-fortune ]; then
+     /usr/bin/mint-fortune
+fi
