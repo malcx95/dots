@@ -24,6 +24,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
 
