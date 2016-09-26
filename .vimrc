@@ -25,6 +25,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'adimit/prolog.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
