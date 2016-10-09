@@ -27,6 +27,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
+Plugin 'hynek/vim-python-pep8-indent'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
