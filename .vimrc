@@ -27,9 +27,14 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+let g:UltiSnipsExpandTrigger="<d-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
