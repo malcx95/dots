@@ -71,8 +71,6 @@ set number
 set directory=$HOME/.vim/swap//
 au Bufread,BufNewFile *.tex set tw=79
 au Bufread,BufNewFile *.tex set formatoptions+=t
-"au Bufread,BufNewFile *.tex set spelllang=sv
-"au Bufread,BufNewFile *.tex set spell
 set scrolloff=5
 set t_Co=256
 colorscheme vendetta
