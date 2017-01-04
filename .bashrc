@@ -1,9 +1,6 @@
 export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;196m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\n-\[$(tput sgr0)\]\[\033[38;5;248m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
-alias ös="ls"
-alias slloop="~/slloop"
 alias rmv="rm -rf"
-alias piconnect="ssh pi@192.168.1.180"
 set -o vi
 
 ltx() {
