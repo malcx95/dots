@@ -16,7 +16,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
