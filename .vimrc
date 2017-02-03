@@ -28,6 +28,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'luochen1990/rainbow'
 Plugin 'maelvalais/gmpl.vim'
 Plugin 'malcx95/Vim-In-ZeKeyboard'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
