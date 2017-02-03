@@ -3,6 +3,8 @@ export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)
 alias rmv="rm -rf"
 set -o vi
 
+alias rubymine="/opt/rubymine/bin/rubymine.sh"
+
 ltx() {
 	pdflatex $1 
 	pdflatex $1
