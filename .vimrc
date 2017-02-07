@@ -69,11 +69,6 @@ set foldmethod=indent
 set foldlevel=99
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
 hi Normal guibg=NONE ctermbg=NONE
 let g:rainbow_active = 1
 let g:rainbow_conf = {
