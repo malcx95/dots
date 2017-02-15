@@ -48,10 +48,7 @@ set showmatch
 let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
 let g:livepreview_previewer = 'evince'
 set noswapfile
-set shiftwidth=4
 syntax on
-set softtabstop=4
-set tabstop=4
 set expandtab
 set autoindent
 set number
@@ -68,7 +65,24 @@ set title
 set mouse=a
 set foldmethod=indent
 set foldlevel=99
+
+function! SetNormalIndent()
+    set softtabstop=4
+    set tabstop=4
+    set shiftwidth=4
+endfunction
+
+function! SetShortIndent()
+    set softtabstop=2
+    set tabstop=2
+    set shiftwidth=2
+endfunction
+
+call SetNormalIndent()
+
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
+
 
 hi Normal guibg=NONE ctermbg=NONE
 let g:rainbow_active = 1
