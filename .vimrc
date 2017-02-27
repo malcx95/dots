@@ -30,11 +30,8 @@ Plugin 'luochen1990/rainbow'
 Plugin 'maelvalais/gmpl.vim'
 Plugin 'malcx95/Vim-In-ZeKeyboard'
 Plugin 'scrooloose/nerdtree'
-<<<<<<< HEAD
 Plugin 'itchyny/vim-haskell-indent'
-=======
 Plugin 'slim-template/vim-slim'
->>>>>>> 2dfc27746b40a4959b29e80c59be3f40eab9763b
 
 call vundle#end()
 filetype plugin indent on
