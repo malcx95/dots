@@ -4,6 +4,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-sensible'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rdnetto/YCM-Generator'
@@ -29,7 +30,11 @@ Plugin 'luochen1990/rainbow'
 Plugin 'maelvalais/gmpl.vim'
 Plugin 'malcx95/Vim-In-ZeKeyboard'
 Plugin 'scrooloose/nerdtree'
+<<<<<<< HEAD
 Plugin 'itchyny/vim-haskell-indent'
+=======
+Plugin 'slim-template/vim-slim'
+>>>>>>> 2dfc27746b40a4959b29e80c59be3f40eab9763b
 
 call vundle#end()
 filetype plugin indent on
@@ -49,10 +54,7 @@ set showmatch
 let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
 let g:livepreview_previewer = 'evince'
 set noswapfile
-set shiftwidth=4
 syntax on
-set softtabstop=4
-set tabstop=4
 set expandtab
 set autoindent
 set number
@@ -69,7 +71,24 @@ set title
 set mouse=a
 set foldmethod=indent
 set foldlevel=99
+
+function! SetNormalIndent()
+    set softtabstop=4
+    set tabstop=4
+    set shiftwidth=4
+endfunction
+
+function! SetShortIndent()
+    set softtabstop=2
+    set tabstop=2
+    set shiftwidth=2
+endfunction
+
+call SetNormalIndent()
+
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
+
 
 hi Normal guibg=NONE ctermbg=NONE
 let g:rainbow_active = 1
