@@ -30,6 +30,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'maelvalais/gmpl.vim'
 Plugin 'malcx95/Vim-In-ZeKeyboard'
 Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/vim-haskell-indent'
 Plugin 'slim-template/vim-slim'
 
 call vundle#end()
