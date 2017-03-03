@@ -85,6 +85,10 @@ call SetNormalIndent()
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
 
+set foldmethod=indent
+set foldnestmax=2
+set foldlevel=1
+
 
 hi Normal guibg=NONE ctermbg=NONE
 let g:rainbow_active = 1
