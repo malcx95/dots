@@ -37,6 +37,7 @@ Plugin 'slim-template/vim-slim'
 call vundle#end()
 filetype plugin indent on
 
+let g:indentLine_enable = 0
 let g:haskell_indent_disable = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -86,6 +87,8 @@ call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 
 set foldmethod=indent
 set foldnestmax=2
