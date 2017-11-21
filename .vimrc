@@ -32,6 +32,7 @@ Plugin 'malcx95/Vim-In-ZeKeyboard'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'slim-template/vim-slim'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on
