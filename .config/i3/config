@@ -12,6 +12,7 @@
 exec gnome-settings-daemon
 exec /home/malcolm/.config/i3/mintconfig.sh 
 
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -30,6 +31,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 set $mod Mod4
 set $alt Mod1
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
