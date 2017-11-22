@@ -7,6 +7,6 @@ if [ $HOSTNAME == Pepparmint ]; then
 else
     # Spearmint config
     xrandr --dpi 200
-    synclient VertScrollDelta=-70 
+    synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
     feh --bg-fill /home/malcolm/Pictures/bakground.jpg
 fi
