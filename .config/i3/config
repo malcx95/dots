@@ -70,6 +70,9 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+$alt+s exec --no-startup-id /home/malcolm/.swedish
+bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
+
 # lock
 bindsym Ctrl+$alt+l exec --no-startup-id /home/malcolm/i3lock-fancy/lock
 
