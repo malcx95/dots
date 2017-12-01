@@ -32,12 +32,11 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Suspend controls
-bindsym XF86Suspend exec systemctl suspend
-
 set $mod Mod4
 set $alt Mod1
 
+# Suspend controls
+bindsym Ctrl+$mod+s exec systemctl suspend
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -156,6 +155,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Colors
+client.focused #505050 #600000 #ffffff #900000 #600000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
