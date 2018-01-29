@@ -87,6 +87,7 @@ call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 
