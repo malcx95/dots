@@ -75,6 +75,9 @@ bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
 # lock
 bindsym Ctrl+$alt+l exec --no-startup-id /home/malcolm/i3lock-fancy/lock
 
+# start chrome
+bindsym $mod+g exec --no-startup-id google-chrome
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
