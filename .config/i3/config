@@ -76,7 +76,7 @@ bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
 bindsym Ctrl+$alt+l exec --no-startup-id /home/malcolm/i3lock-fancy/lock
 
 # start chrome
-bindsym $mod+g exec --no-startup-id google-chrome
+bindsym $mod+space exec --no-startup-id google-chrome
 
 # change focus
 bindsym $mod+h focus left
@@ -120,7 +120,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+g focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
