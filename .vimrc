@@ -17,8 +17,8 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
@@ -94,6 +94,64 @@ au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 set foldmethod=indent
 set foldnestmax=2
 set foldlevel=1
+
+" Autoclosing brackets (from closepairs.vim)
+
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap [ []<left>
+
+vnoremap <leader>" "zdi"<c-r>z"
+vnoremap <leader>' "zdi'<c-r>z'
+vnoremap <leader>( "zdi(<c-r>z)
+vnoremap <leader>[ "zdi[<c-r>z]
+vnoremap <leader>{ "zdi{<c-r>z}
+
+inoremap <expr> <bs> <SID>delpair()
+
+inoremap <expr> ) <SID>escapepair(')')
+inoremap <expr> } <SID>escapepair('}')
+inoremap <expr> ] <SID>escapepair(']')
+
+inoremap <expr> " <SID>pairquotes('"')
+inoremap <expr> ' <SID>pairquotes("'")
+
+
+function! s:delpair()
+	let l:lst = ['""',"''",'{}','[]','()']
+	let l:col = col('.')
+	let l:line = getline('.')
+	let l:chr = l:line[l:col-2 : l:col-1]
+	if index(l:lst, l:chr) > -1
+		return "\<bs>\<del>"
+	else
+		let l:chr = l:line[l:col-3:l:col-2]
+		if (index(l:lst, l:chr)) > - 1
+			return "\<bs>\<bs>"
+		endif
+		return "\<bs>"
+endf
+
+function! s:escapepair(right)
+	let l:col = col('.')
+	let l:chr = getline('.')[l:col-1]
+	if a:right == l:chr 
+		return "\<right>"
+	else
+		return a:right
+
+endf
+
+function! s:pairquotes(pair)
+	let l:col = col('.')
+	let l:line = getline('.')
+	let l:chr = l:line[l:col-1]
+	if a:pair == l:chr 
+		return "\<right>"
+	else
+		return a:pair.a:pair."\<left>"
+
+endf
 
 
 hi Normal guibg=NONE ctermbg=NONE
