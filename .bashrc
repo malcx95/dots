@@ -1,14 +1,13 @@
 export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;196m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\n-\[$(tput sgr0)\]\[\033[38;5;248m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 alias rmv="rm -rf"
-set -o vi
-# hej
-
+alias :q="exit"
 alias rwfi="sudo service network-manager restart"
 
 stty -ixon
 alias rubymine="/opt/rubymine/bin/rubymine.sh"
 
+set -o vi
 ltx() {
 	pdflatex $1 
 	pdflatex $1
