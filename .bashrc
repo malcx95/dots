@@ -73,3 +73,6 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 
+
+# added by Miniconda3 installer
+export PATH="/home/malcolm/sw/miniconda3/bin:$PATH"
