@@ -83,6 +83,12 @@ function! SetShortIndent()
     set shiftwidth=2
 endfunction
 
+function! Fuck()
+    echo "Fuck you too!"
+endfunction
+
+command! FUUUUUUUUUUUUUCK call Fuck()
+
 call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
@@ -116,6 +122,16 @@ inoremap <expr> ] <SID>escapepair(']')
 inoremap <expr> " <SID>pairquotes('"')
 inoremap <expr> ' <SID>pairquotes("'")
 
+function! g:SwitchXAndY()
+    s/x/y/g
+endf
+
+function! g:SwitchYAndX()
+    s/x/y/g
+endf
+
+command! Xy call SwitchXAndY()
+command! Yx call SwitchXAndY()
 
 function! s:delpair()
 	let l:lst = ['""',"''",'{}','[]','()']
@@ -152,6 +168,7 @@ function! s:pairquotes(pair)
 		return a:pair.a:pair."\<left>"
 
 endf
+
 
 
 hi Normal guibg=NONE ctermbg=NONE
