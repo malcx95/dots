@@ -8,5 +8,5 @@ else
     # Spearmint config
     xrandr --dpi 200
     synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
-    feh --bg-fill /home/malcolm/Pictures/background.jpg
+    /usr/bin/python3 /home/malcolm/.config/i3/wallpaper.py
 fi
