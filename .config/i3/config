@@ -73,7 +73,10 @@ bindsym $mod+$alt+s exec --no-startup-id /home/malcolm/.swedish
 bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
 
 # lock
-bindsym Ctrl+$alt+l exec --no-startup-id /home/malcolm/i3lock-fancy/lock
+bindsym Ctrl+$alt+l exec /home/malcolm/Programming/i3-sortlock/lock.sh 2> /home/malcolm/err.txt
+
+bindsym Ctrl+$mod+q exec --no-startup-id gnome-screenshot
+bindsym Ctrl+$mod+w exec --no-startup-id gnome-screenshot-a
 
 # start chrome
 bindsym $mod+space exec --no-startup-id google-chrome
@@ -169,6 +172,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+for_window [class="American highway simulator" instance="ahs"] floating enable
 # Colors
 client.focused #505050 #600000 #ffffff #900000 #600000
 
