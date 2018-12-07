@@ -101,6 +101,9 @@ set foldmethod=indent
 set foldnestmax=2
 set foldlevel=1
 
+map ; :
+imap jk <Esc>
+
 " Autoclosing brackets (from closepairs.vim)
 
 inoremap ( ()<left>
