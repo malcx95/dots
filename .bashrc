@@ -1,5 +1,6 @@
 export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;196m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\n-\[$(tput sgr0)\]\[\033[38;5;248m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
+export FFMPEG_BINARY='/usr/local/bin/ffmpeg'
 alias rmv="rm -rf"
 alias :q="exit"
 alias rwfi="sudo service network-manager restart"
