@@ -3,18 +3,23 @@ export PS1="\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)
 alias rmv="rm -rf"
 alias :q="exit"
 alias rwfi="sudo service network-manager restart"
+alias shit=gdb
 
 stty -ixon
 alias rubymine="/opt/rubymine/bin/rubymine.sh"
 
 set -o vi
 ltx() {
-	pdflatex $1 
-	pdflatex $1
+	pdflatex $1.tex
+    bibtex $1.aux
+	pdflatex $1.tex
+	pdflatex $1.tex
 	rm *log
 	rm *aux
 	rm *toc
 }
+
+alias switch="touch /tmp/switch"
 
 up(){
   local d=""
