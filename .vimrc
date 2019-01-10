@@ -63,7 +63,7 @@ au Bufread,BufNewFile *.tex set formatoptions+=t
 set scrolloff=5
 set t_Co=256
 colorscheme vendetta
-set relativenumber
+"set relativenumber
 set showcmd
 set ignorecase
 set title
