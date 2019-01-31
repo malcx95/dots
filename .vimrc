@@ -20,6 +20,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
+Plugin 'junegunn/fzf'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
@@ -103,6 +104,13 @@ set foldlevel=1
 
 map ; :
 imap jk <Esc>
+map <Space>f :FZF<CR>
+map <Space>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Space>gr :YcmCompleter GoToReferences<CR>
+" Spelling suggestions
+map <Space>c z=
+map <Space>n :bn<CR>
+map <Space>p :bp<CR>
 
 " Autoclosing brackets (from closepairs.vim)
 
