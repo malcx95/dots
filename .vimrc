@@ -20,6 +20,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
+Plugin 'junegunn/fzf'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
@@ -59,6 +60,8 @@ set number
 set directory=$HOME/.vim/swap//
 au Bufread,BufNewFile *.tex set tw=79
 au Bufread,BufNewFile *.tex set formatoptions+=t
+au Bufread,BufNewFile *.tex set spell spelllang=en_us
+au Bufread,BufNewFile *.tex set syntax=tex
 set scrolloff=5
 set t_Co=256
 colorscheme vendetta
@@ -103,6 +106,14 @@ set foldlevel=1
 
 map ; :
 imap jk <Esc>
+map <Space>f :FZF<CR>
+map <Space>b :Buffers<CR>
+map <Space>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Space>gr :YcmCompleter GoToReferences<CR>
+" Spelling suggestions
+map <Space>c z=
+map <Space>n :bn<CR>
+map <Space>p :bp<CR>
 
 " Autoclosing brackets (from closepairs.vim)
 
