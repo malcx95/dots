@@ -61,6 +61,8 @@ set number
 set directory=$HOME/.vim/swap//
 au Bufread,BufNewFile *.tex set tw=79
 au Bufread,BufNewFile *.tex set formatoptions+=t
+au Bufread,BufNewFile *.tex set spell spelllang=en_us
+au Bufread,BufNewFile *.tex set syntax=tex
 set scrolloff=5
 set t_Co=256
 colorscheme vendetta
@@ -105,6 +107,7 @@ set foldlevel=1
 map ; :
 imap jk <Esc>
 map <Space>f :FZF<CR>
+map <Space>b :Buffers<CR>
 map <Space>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Space>gr :YcmCompleter GoToReferences<CR>
 " Spelling suggestions
