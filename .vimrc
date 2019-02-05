@@ -53,7 +53,6 @@ set showmatch
 let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
 let g:livepreview_previewer = 'evince'
 set noswapfile
-syntax on
 set expandtab
 set autoindent
 set number
@@ -97,6 +96,7 @@ au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 
+syntax on
 set foldmethod=indent
 set foldnestmax=2
 set foldlevel=1
@@ -199,3 +199,4 @@ let g:rainbow_conf = {
     \   }
     \}
 
+au BufNewFile,BufFilePre,BufRead *.rs set filetype=rust
