@@ -173,6 +173,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 for_window [class="American highway simulator" instance="ahs"] floating enable
+for_window [instance="tilde"] floating enable
 # Colors
 client.focused #505050 #600000 #ffffff #900000 #600000
 
