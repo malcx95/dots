@@ -20,6 +20,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
+Plugin 'junegunn/fzf'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
@@ -53,17 +54,18 @@ set showmatch
 let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
 let g:livepreview_previewer = 'evince'
 set noswapfile
-syntax on
 set expandtab
 set autoindent
 set number
 set directory=$HOME/.vim/swap//
 au Bufread,BufNewFile *.tex set tw=79
 au Bufread,BufNewFile *.tex set formatoptions+=t
+au Bufread,BufNewFile *.tex set spell spelllang=en_us
+au Bufread,BufNewFile *.tex set syntax=tex
 set scrolloff=5
 set t_Co=256
 colorscheme vendetta
-set relativenumber
+"set relativenumber
 set showcmd
 set ignorecase
 set title
@@ -97,12 +99,21 @@ au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 
+syntax on
 set foldmethod=indent
 set foldnestmax=2
 set foldlevel=1
 
 map ; :
 imap jk <Esc>
+map <Space>f :FZF<CR>
+map <Space>b :Buffers<CR>
+map <Space>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Space>gr :YcmCompleter GoToReferences<CR>
+" Spelling suggestions
+map <Space>c z=
+map <Space>n :bn<CR>
+map <Space>p :bp<CR>
 
 " Autoclosing brackets (from closepairs.vim)
 
@@ -198,4 +209,5 @@ let g:rainbow_conf = {
     \       'css': 0,
     \   }
     \}
+
 au BufNewFile,BufFilePre,BufRead *.rs set filetype=rust
