@@ -198,4 +198,4 @@ let g:rainbow_conf = {
     \       'css': 0,
     \   }
     \}
-
+au BufNewFile,BufFilePre,BufRead *.rs set filetype=rust
