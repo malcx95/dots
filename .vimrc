@@ -2,6 +2,7 @@
 set nocompatible
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/fzf
 call vundle#begin()
 
 Plugin 'kchmck/vim-coffee-script'
@@ -21,6 +22,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'ElmCast/elm-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'adimit/prolog.vim'
@@ -34,6 +36,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'slim-template/vim-slim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,6 +49,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:Tex_DefaultTargetFormat='pdf'
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:gitgutter_max_signs=10000
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:SimpylFold_docstring_preview=1
@@ -95,6 +100,8 @@ call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.ts call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.js call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
