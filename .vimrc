@@ -94,8 +94,6 @@ function! Fuck()
     echo "Fuck you too!"
 endfunction
 
-command! FUUUUUUUUUUUUUCK call Fuck()
-
 call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
