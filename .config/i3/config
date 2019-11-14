@@ -23,7 +23,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
@@ -76,10 +76,10 @@ bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
 bindsym Ctrl+$alt+l exec /home/malcolm/Programming/i3-sortlock/lock.sh 2> /home/malcolm/err.txt
 
 bindsym Ctrl+$mod+q exec --no-startup-id gnome-screenshot
-bindsym Ctrl+$mod+w exec --no-startup-id gnome-screenshot-a
+bindsym Ctrl+$mod+w exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # start chrome
-bindsym $mod+space exec --no-startup-id google-chrome
+bindsym $mod+space exec --no-startup-id firefox
 
 # change focus
 bindsym $mod+h focus left
@@ -131,6 +131,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+bindsym $mod+$alt+Shift+l move workspace to output right
+bindsym $mod+$alt+Shift+h move workspace to output left
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -174,6 +177,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 for_window [class="American highway simulator" instance="ahs"] floating enable
 for_window [instance="tilde"] floating enable
+#for_window [class="Chromium-browser"] floating enable
 # Colors
 client.focused #505050 #600000 #ffffff #900000 #600000
 

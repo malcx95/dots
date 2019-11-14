@@ -20,7 +20,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'puremourning/vimspector'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ElmCast/elm-vim'
@@ -90,12 +90,6 @@ function! SetShortIndent()
     set shiftwidth=2
 endfunction
 
-function! Fuck()
-    echo "Fuck you too!"
-endfunction
-
-command! FUUUUUUUUUUUUUCK call Fuck()
-
 call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
@@ -105,6 +99,7 @@ au BufNewFile,BufFilePre,BufRead *.js call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
+au BufNewFile,BufFilePre,BufRead *.component.html call SetNormalIndent()
 
 syntax on
 set foldmethod=indent
@@ -121,6 +116,8 @@ map <Space>gr :YcmCompleter GoToReferences<CR>
 map <Space>c z=
 map <Space>n :bn<CR>
 map <Space>p :bp<CR>
+map <C-c> "+y
+map <C-p> "+p
 
 " Autoclosing brackets (from closepairs.vim)
 
