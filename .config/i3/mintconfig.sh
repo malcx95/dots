@@ -11,8 +11,11 @@ elif [ $HOSTNAME == spearmint ]; then
     /usr/bin/python3 /home/malcolm/.config/i3/wallpaper.py
 else
     # attentec config
-    xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --output HDMI-1 --mode 2560x1440 --right-of eDP-1 --output DP-5 --mode 1920x1200 --right-of HDMI-1
+    xrandr --output Virtual1 --mode 1920x1080 --pos 0x0 --output Virtual2 --mode 2560x1440 --right-of Virtual1 --output Virtual3 --mode 1920x1200 --right-of Virtual2
     synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+    
+    xrdb /home/malcolm/.Xresources
+
     /usr/bin/python3 /home/malcolm/.config/i3/wallpaper.py
     # feh --bg-fill /home/malcolm/Pictures/wallpaper.jpg
 fi
