@@ -90,12 +90,6 @@ function! SetShortIndent()
     set shiftwidth=2
 endfunction
 
-function! Fuck()
-    echo "Fuck you too!"
-endfunction
-
-command! FUUUUUUUUUUUUUCK call Fuck()
-
 call SetNormalIndent()
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
@@ -121,6 +115,8 @@ map <Space>gr :YcmCompleter GoToReferences<CR>
 map <Space>c z=
 map <Space>n :bn<CR>
 map <Space>p :bp<CR>
+map <C-c> "+y
+map <C-p> "+p
 
 " Autoclosing brackets (from closepairs.vim)
 

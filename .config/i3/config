@@ -76,10 +76,10 @@ bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
 bindsym Ctrl+$alt+l exec /home/malcolm/Programming/i3-sortlock/lock.sh 2> /home/malcolm/err.txt
 
 bindsym Ctrl+$mod+q exec --no-startup-id gnome-screenshot
-bindsym Ctrl+$mod+w exec --no-startup-id gnome-screenshot-a
+bindsym Ctrl+$mod+w exec --no-startup-id gnome-screenshot -a
 
 # start chrome
-bindsym $mod+space exec --no-startup-id google-chrome
+bindsym $mod+space exec --no-startup-id firefox
 
 # change focus
 bindsym $mod+h focus left
