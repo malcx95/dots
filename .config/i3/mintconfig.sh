@@ -2,7 +2,7 @@
 
 if [ $HOSTNAME == pepparmint ]; then
     # Pepparmint config
-    xrandr --auto --output HDMI3 --mode 1920x1080 --right-of DP1
+    xrandr --output HDMI2 --mode 2560x1440 --output DP1 --mode 2560x1440 --rotate left --left-of HDMI2
     feh --bg-fill /home/malcolm/Pictures/background.jpg
 else
     # Spearmint config

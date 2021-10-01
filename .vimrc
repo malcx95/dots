@@ -63,7 +63,7 @@ set expandtab
 set autoindent
 set number
 set directory=$HOME/.vim/swap//
-au Bufread,BufNewFile *.tex set tw=79
+"au Bufread,BufNewFile *.tex set tw=79
 au Bufread,BufNewFile *.tex set formatoptions+=t
 au Bufread,BufNewFile *.tex set spell spelllang=en_us
 au Bufread,BufNewFile *.tex set syntax=tex
@@ -97,6 +97,7 @@ au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.ts call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.js call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.elm call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
 
