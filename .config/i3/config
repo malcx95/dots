@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec gnome-settings-daemon
+exec /usr/lib/gnome-settings-daemon
 exec /home/malcolm/.config/i3/mintconfig.sh 
 
 # Disable capslock
@@ -104,6 +104,9 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+Ctrl+l move workspace to output right
+bindsym $mod+Shift+Ctrl+h move workspace to output left
 
 # split in horizontal orientation
 bindsym $mod+p split h

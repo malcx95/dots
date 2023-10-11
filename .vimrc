@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/fzf
 call vundle#begin()
 
+Plugin 'https://gitlab.com/TheZoq2/spade-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-sensible'
 Plugin 'VundleVim/Vundle.vim'
@@ -21,6 +22,8 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'davidhalter/jedi-vim'
+Plugin 'alvan/vim-closetag'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ElmCast/elm-vim'
@@ -97,8 +100,12 @@ au BufNewFile,BufFilePre,BufRead *.rb call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.ts call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.js call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.hs call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.elm call SetShortIndent()
+au BufNewFile,BufFilePre,BufRead *.html call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.coffee call SetShortIndent()
 au BufNewFile,BufFilePre,BufRead *.slim let g:indentLine_enable = 1
+
+au BufNewFile,BufFilePre,BufRead *.html set syntax=html
 
 syntax on
 set foldmethod=indent
