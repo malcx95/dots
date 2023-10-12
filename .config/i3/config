@@ -7,36 +7,9 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
-exec /usr/lib/gnome-settings-daemon
-exec /home/malcolm/.config/i3/mintconfig.sh 
-
-# Disable capslock
-exec setxkbmap -option caps:none
-
-# Terminal transparency
-# exec --no-statup-id xcompmgr -c -f -n
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $alt Mod1
-
-# Suspend controls
-bindsym Ctrl+$mod+s exec sleep 1 && systemctl suspend
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -56,11 +29,21 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+exec_always --no-startup-id /home/malcolm/.config/i3/mintconfig.sh
+exec_always --no-startup-id setxkbmap -option caps:none
+exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
+# start firefox
+bindsym $mod+space exec firefox
+
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# lock screen
+bindsym $mod+x exec /home/$USER/.config/i3/scripts/lock.sh
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -69,29 +52,25 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+$alt+s exec --no-startup-id /home/malcolm/.swedish
-bindsym $mod+$alt+a exec --no-startup-id /home/malcolm/.american
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# lock
-bindsym Ctrl+$alt+l exec /home/malcolm/Programming/i3-sortlock/lock.sh 2> /home/malcolm/err.txt
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
-bindsym Ctrl+$mod+q exec --no-startup-id gnome-screenshot
-bindsym Ctrl+$mod+w exec --no-startup-id gnome-screenshot -a
-
-# start chrome
-bindsym $mod+space exec --no-startup-id firefox
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -105,9 +84,6 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+Shift+Ctrl+l move workspace to output right
-bindsym $mod+Shift+Ctrl+h move workspace to output left
-
 # split in horizontal orientation
 bindsym $mod+p split h
 
@@ -115,7 +91,7 @@ bindsym $mod+p split h
 bindsym $mod+n split v
 
 # enter fullscreen mode for the focused container
-bindsym Ctrl+$alt+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -126,7 +102,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+g focus mode_toggle
+bindsym $mod+Shift+f focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -145,16 +121,6 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-bindsym $mod+$alt+1 workspace 11
-bindsym $mod+$alt+2 workspace 12
-bindsym $mod+$alt+3 workspace 13
-bindsym $mod+$alt+4 workspace 14
-bindsym $mod+$alt+5 workspace 15
-bindsym $mod+$alt+6 workspace 16
-bindsym $mod+$alt+7 workspace 17
-bindsym $mod+$alt+8 workspace 18
-bindsym $mod+$alt+9 workspace 19
-bindsym $mod+$alt+0 workspace 20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -174,11 +140,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-for_window [class="American highway simulator" instance="ahs"] floating enable
-for_window [instance="tilde"] floating enable
-# Colors
-client.focused #505050 #600000 #ffffff #900000 #600000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -210,6 +171,4 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3blocks -c /home/malcolm/.i3blocks.conf
-        tray_output primary
 }
-

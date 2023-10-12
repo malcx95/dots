@@ -77,7 +77,9 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
+export PATH=$PATH:$HOME/pycharm/pycharm-community-2022.2.2/bin
 
-
-# added by Miniconda3 installer
-export PATH="/home/malcolm/sw/miniconda3/bin:$PATH"
+export ARDUINO_DIR=/home/malcolm/arduino-1.8.16
+export AVR_TOOLS_DIR=/home/malcolm/arduino-1.8.16/hardware/tools/avr/include
+export ARDMK_DIR=/home/malcolm/Programming/Arduino-Makefile/
+. "$HOME/.cargo/env"

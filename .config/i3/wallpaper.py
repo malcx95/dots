@@ -9,6 +9,9 @@ SWITCH_FILE = "/tmp/switch"
 SWITCH_TIME = 3600
 REFRESH_TIME = 3
 
+with open('/home/malcolm/error', 'w') as f:
+    f.write("hallårö")
+
 def switch_wallpaper():
     files = None
     for root, _, fs in os.walk(WALLPAPER_DIR):
@@ -18,6 +21,7 @@ def switch_wallpaper():
     subprocess.run(['feh', '--bg-fill', wallpaper], stdout=subprocess.PIPE)
 
 try:
+    switch_wallpaper()
     time = 0
     while True:
         if time >= SWITCH_TIME:
