@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-setxkbmap -option caps:none
-setxkbmap -layout se
-
