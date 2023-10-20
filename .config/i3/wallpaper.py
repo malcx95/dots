@@ -26,7 +26,7 @@ client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcol
 POLYBAR_CONFIG = """
 [colors]
 background = {background}
-background-alt = #373B41
+background-alt = {background_alt}
 foreground = #C5C8C6
 primary = {primary}
 secondary = #8ABEB7
@@ -45,7 +45,7 @@ SATURATION_THRESHOLD = 0.1
 VALUE_THRESHOLD = 70
 
 FOCUS_SATURATION = 0.5
-FOCUS_VALUE = 0.7
+FOCUS_VALUE = 0.6
 
 UNFOCUS_SATURATION = 0.9
 UNFOCUS_VALUE = 0.2
@@ -104,6 +104,7 @@ def apply_color(hue):
 
     polybar_config_text = POLYBAR_CONFIG.format(
         background=rgb_to_hex(color_background),
+        background_alt=rgb_to_hex(color_unfocused),
         primary=rgb_to_hex(color_primary),
     )
     with open("/home/malcolm/.config/polybar/colors.conf", "w") as f:
