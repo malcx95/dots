@@ -3,9 +3,12 @@ import time as t
 import os
 import subprocess
 import imageio
+import json
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 import numpy as np
+
+from pathlib import Path
 
 I3_COLORS_TEMPLATE = """
 set $bgcolor    {focus}
@@ -37,6 +40,8 @@ disabled = #707880
 
 WALLPAPER_DIR = '/home/malcolm/Pictures/wallpapers'
 SWITCH_FILE = "/tmp/switch"
+THEME_CACHE_DIR = Path("/home/malcolm/.cache/theme")
+THEME_CACHE = THEME_CACHE_DIR / "theme.json"
 
 SWITCH_TIME = 3600
 REFRESH_TIME = 3
@@ -70,7 +75,7 @@ def switch_wallpaper():
     change_theme(wallpaper)
 
 
-def change_theme(wallpaper_path):
+def calculate_hue(wallpaper_path):
     image = imageio.imread_v2(wallpaper_path)
     hsv = colors.rgb_to_hsv(image)
     hue = hsv[:, :, 0]
@@ -82,8 +87,37 @@ def change_theme(wallpaper_path):
     histogram, edges = np.histogram(hue[mask], bins=50)
     max_index = np.argmax(histogram)
     max_hue = edges[max_index]
+    return max_hue
 
-    apply_color(max_hue)
+
+def fetch_hue_from_cache(wallpaper_path):
+    if not THEME_CACHE.exists():
+        return None
+    cache = {}
+    with open(THEME_CACHE) as f:
+        cache = json.load(f)
+
+    return cache.get(wallpaper_path)
+
+
+def save_hue_to_cache(wallpaper_path, hue):
+    cache = {}
+    if THEME_CACHE.exists():
+        with open(THEME_CACHE) as f:
+            cache = json.load(f)
+
+    cache[wallpaper_path] = hue
+
+    with open(THEME_CACHE, "w") as f:
+        json.dump(cache, f)
+
+
+def change_theme(wallpaper_path):
+    hue = fetch_hue_from_cache(wallpaper_path)
+    if hue is None:
+        hue = calculate_hue(wallpaper_path)
+        save_hue_to_cache(wallpaper_path, float(hue))
+    apply_color(hue)
 
 
 def apply_color(hue):
@@ -120,6 +154,7 @@ def rgb_to_hex(rgb):
 
 
 def main():
+    THEME_CACHE_DIR.mkdir(exist_ok=True)
     time = SWITCH_TIME
     while True:
         if time >= SWITCH_TIME:
