@@ -32,7 +32,7 @@ floating_modifier $mod
 exec_always --no-startup-id /home/malcolm/.config/i3/mintconfig.sh
 exec_always --no-startup-id setxkbmap -option caps:none
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl -option nodeadkeys
-exec_always picom -f
+exec_always picom -f --config /home/malcolm/.config/picom/picom.conf --log-file /home/malcolm/.picomlog
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
@@ -44,21 +44,21 @@ bindsym $mod+space exec firefox
 bindsym $mod+Shift+q kill
 
 # lock screen
-bindsym $mod+x exec /home/$USER/.config/i3/scripts/lock.sh
+bindsym $mod+x exec /home/malcolm/Programming/i3-sortlock/lock.sh
+bindsym $mod+Shift+x exec systemctl suspend
 
-bindsym $mod+Shift+s exec --no-startup-id maim  --select | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+bindsym $mod+t exec --no-startup-id thunar
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Tab exec rofi -show window
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 5%-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set 'Master' +1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
@@ -172,8 +172,8 @@ bindsym $mod+r mode "resize"
 
 
 # default gaps
-gaps inner 3
-gaps outer 2
+gaps inner 2
+gaps outer 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

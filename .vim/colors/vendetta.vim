@@ -5,14 +5,16 @@ let s:selection = "424242"
 let s:line = "202020"
 let s:non_text = "666666"
 let s:comment = "888888"
-let s:red = "D62222"
+let s:red = "F70F0F"
 let s:orange = "FCA90F"
 let s:yellow = "EBE971"
 let s:green = "00b853"
 let s:supergreen = "31FF26"
 let s:aqua = "4ae5e8"
-let s:blue = "5E99E6"
+let s:blue = "7e85fc"
 let s:purple = "B067C2"
+let s:deep_purple = "C140DB"
+let s:slime = "ADF514"
 let s:window = "4d5057"
 let s:tab_bg = "333333"
 let s:tab_fg = "f6f6f6"
@@ -276,7 +278,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Comment", s:comment, "", "")
   call <SID>X("Todo", s:supergreen, s:background, "bold")
   call <SID>X("Title", s:comment, "", "")
-  call <SID>X("Identifier", s:aqua, "", "none")
+  call <SID>X("Identifier", s:slime, "", "none")
   call <SID>X("Statement", s:red, "", "none")
   call <SID>X("Conditional", s:blue, "", "")
   call <SID>X("Repeat", s:red, "", "")

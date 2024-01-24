@@ -7,7 +7,7 @@ alias rwfi="sudo service network-manager restart"
 alias shit=gdb
 
 stty -ixon
-alias rubymine="/opt/rubymine/bin/rubymine.sh"
+alias makej="make -j12"
 
 set -o vi
 ltx() {
@@ -20,6 +20,7 @@ ltx() {
 	rm *toc
 }
 
+alias vim=nvim
 alias switch="touch /tmp/switch"
 
 up(){
@@ -79,7 +80,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 export PATH=$PATH:$HOME/pycharm/pycharm-community-2022.2.2/bin
 
-export ARDUINO_DIR=/home/malcolm/arduino-1.8.16
-export AVR_TOOLS_DIR=/home/malcolm/arduino-1.8.16/hardware/tools/avr/include
-export ARDMK_DIR=/home/malcolm/Programming/Arduino-Makefile/
+export ARDUINO_DIR=/home/malcolm/.arduino15
+export JSON_CPP_DIR=/home/malcolm/Programming/json
 . "$HOME/.cargo/env"
+export CATCH_DIR=/home/malcolm/Programming/Catch2

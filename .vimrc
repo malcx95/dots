@@ -14,14 +14,12 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'davidhalter/jedi-vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'junegunn/fzf'
@@ -41,6 +39,8 @@ Plugin 'slim-template/vim-slim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-airline/vim-airline'
+Plugin 'catppuccin/nvim'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,7 +53,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:Tex_DefaultTargetFormat='pdf'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:gitgutter_max_signs=10000
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:SimpylFold_docstring_preview=1
 set enc=utf-8
@@ -117,9 +116,17 @@ imap jk <Esc>
 map <Space>f :FZF<CR>
 map <Space>b :Buffers<CR>
 map <Space>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <C-b> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Space>gr :YcmCompleter GoToReferences<CR>
+map <Space>gi :YcmCompleter GoToInclude<CR>
+map <Space>ga :YcmCompleter GoToDeclaration<CR>
+map <Space>gf :YcmCompleter FixIt<CR>
+map <A-Enter> :YcmCompleter FixIt<CR>
+map <F6> :YcmCompleter RefactorRename
+map <F7> :YcmCompleter FixIt
+map <Space>c :Copilot<CR>
+
 " Spelling suggestions
-map <Space>c z=
 map <Space>n :bn<CR>
 map <Space>p :bp<CR>
 map <C-c> "+y

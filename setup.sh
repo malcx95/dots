@@ -47,7 +47,7 @@ sudo apt install ./keyring.deb
 echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
 sudo apt update
 
-sudo apt install -y xorg lightdm lightdm-gtk-greeter i3-wm i3status i3blocks dmenu terminator feh materia-gtk-theme papirus-icon-theme lxappearance fonts-font-awesome playerctl picom
+sudo apt install -y xorg lightdm lightdm-gtk-greeter i3-wm i3status i3blocks dmenu terminator feh materia-gtk-theme papirus-icon-theme lxappearance fonts-font-awesome playerctl picom rofi
 
 # install i3-lock-color
 sudo apt install -y autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
