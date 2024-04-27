@@ -32,6 +32,7 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'nvim-tree/nvim-web-devicons',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -170,7 +171,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = '|',
         section_separators = '',

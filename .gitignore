@@ -139,3 +139,8 @@ sxhkd
 test.py
 xidlehook/
 xtitle
+.fonts
+.nvm
+.config/nvim/lazy-lock.json
+neovim
+polybar*

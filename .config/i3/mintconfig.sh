@@ -3,7 +3,6 @@
 pkill -f wallpaper.py
 /usr/bin/python3 $HOME/.config/i3/wallpaper.py &
 
-echo "den stora kebaben" > /home/malcolm/hej
 killall nm-applet
 nm-applet
 

@@ -84,3 +84,7 @@ export ARDUINO_DIR=/home/malcolm/.arduino15
 export JSON_CPP_DIR=/home/malcolm/Programming/json
 . "$HOME/.cargo/env"
 export CATCH_DIR=/home/malcolm/Programming/Catch2
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
