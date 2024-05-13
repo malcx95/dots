@@ -9,10 +9,11 @@ nm-applet
 killall xidlehook
 
 xidlehook \
+  --not-when-fullscreen \
   --not-when-audio \
-  --timer 600 \
+  --timer 6000 \
     '/home/malcolm/Programming/i3-sortlock/lock.sh' \
     '' \
-  --timer 1000 \
+  --timer 10000 \
     'systemctl suspend' \
     '' &

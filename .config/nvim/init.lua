@@ -4,6 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -20,6 +23,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
@@ -29,6 +33,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
+  'rktjmp/lush.nvim',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -36,12 +41,20 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+  'emakman/nvim-latex-previewer',
 
   -- Auto close brackets
   'm4xshen/autoclose.nvim',
 
   -- Github copilot
   'github/copilot.vim',
+
+  'https://gitlab.com/spade-lang/spade-vim',
+
+  'nvim-tree/nvim-tree.lua',
+
+  'nvim-tree/nvim-web-devicons',
+  'ntpeters/vim-better-whitespace',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -77,6 +90,18 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    opts = {
+    },
+    -- See Commands section for default commands if you want to lazy load on them
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -155,13 +180,17 @@ require('lazy').setup({
       end,
     },
   },
+  {
+    'tiagovla/tokyodark.nvim',
+    priority = 1000,
+  },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'catppuccin-mocha'
     end,
   },
 
@@ -171,8 +200,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'onedark',
+        icons_enabled = false,
+        theme = 'catppuccin-mocha',
         component_separators = '|',
         section_separators = '',
       },
@@ -530,6 +559,8 @@ require('which-key').register({
 require('mason').setup()
 require('mason-lspconfig').setup()
 
+require('nvim-web-devicons').setup()
+
 -- Enable autoclose
 require("autoclose").setup({
    options = {
@@ -587,6 +618,9 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- empty setup using defaults
+require("nvim-tree").setup()
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

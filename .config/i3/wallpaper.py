@@ -5,7 +5,6 @@ import subprocess
 import imageio
 import json
 import matplotlib.colors as colors
-import matplotlib.pyplot as plt
 import numpy as np
 
 from pathlib import Path
@@ -145,7 +144,6 @@ def apply_color(hue):
         f.write(polybar_config_text)
 
     subprocess.run(["i3-msg", "reload"])
-
 
 
 def rgb_to_hex(rgb):
