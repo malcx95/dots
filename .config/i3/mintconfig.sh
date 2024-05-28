@@ -13,7 +13,8 @@ xidlehook \
   --not-when-audio \
   --timer 6000 \
     '/home/malcolm/Programming/i3-sortlock/lock.sh' \
-    '' \
-  --timer 10000 \
-    'systemctl suspend' \
-    '' &
+    ''
+#     \
+#   --timer 10000 \
+#     'systemctl suspend' \
+#     '' &

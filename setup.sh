@@ -117,4 +117,9 @@ cd ~
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+install git-delta
+wget https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb
+sudo dpkg -i git-delta_0.17.0_amd64.deb
+rm git-delta_0.17.0_amd64.deb
+
 echo "Don't forget to set the theme in lxappearance"
