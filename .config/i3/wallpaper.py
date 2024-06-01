@@ -36,10 +36,11 @@ alert = #A54242
 disabled = #707880
 """
 
+HOME = Path.home()
 
-WALLPAPER_DIR = '/home/malcolm/Pictures/wallpapers'
+WALLPAPER_DIR = str(HOME / 'Pictures/wallpapers')
 SWITCH_FILE = "/tmp/switch"
-THEME_CACHE_DIR = Path("/home/malcolm/.cache/theme")
+THEME_CACHE_DIR = HOME / ".cache/theme"
 THEME_CACHE = THEME_CACHE_DIR / "theme.json"
 
 SWITCH_TIME = 3600
@@ -132,7 +133,7 @@ def apply_color(hue):
         indicator=rgb_to_hex(color_indicator),
     )
 
-    with open("/home/malcolm/.config/i3/colors.conf", "w") as f:
+    with open(HOME / ".config/i3/colors.conf", "w") as f:
         f.write(i3_config_text)
 
     polybar_config_text = POLYBAR_CONFIG.format(
@@ -140,7 +141,7 @@ def apply_color(hue):
         background_alt=rgb_to_hex(color_unfocused),
         primary=rgb_to_hex(color_primary),
     )
-    with open("/home/malcolm/.config/polybar/colors.conf", "w") as f:
+    with open("$HOME" / ".config/polybar/colors.conf", "w") as f:
         f.write(polybar_config_text)
 
     subprocess.run(["i3-msg", "reload"])
@@ -170,5 +171,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        with open('/home/malcolm/error', 'w') as f:
+        with open(HOME / 'error', 'w') as f:
             f.write(str(e))
