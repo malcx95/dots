@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read -p "Before running, add an SSH key to your GitHub account. Press enter to continue."
+
 echo "If you have a HiDPi screen, please create an ~/.Xresources file with the following content:"
 echo "Xft.dpi: 200 (or whichever DPI you want)"
 sleep 1
@@ -23,17 +25,10 @@ git config --global user.email "trekommafem2@gmail.com"
 
 
 # install packages
-sudo apt install -y wget build-essential libncursesw5-dev libssl-dev \
-libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 
 sudo apt install thunar
-
-
-sudo add-apt-repository ppa:deadsnakes/ppa -y
-sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y
-sudo apt update
-
-sudo apt install -y build-essential cmake python3-dev python-is-python3 python3-pip mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm freecad-common
+sudo apt install -y build-essential cmake python3-dev python-is-python3 python3-pip mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
 
 pip install imageio numpy scipy matplotlib opencv-python
 
@@ -81,7 +76,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono
 unzip UbuntuMono.zip
 cp *.ttf ~/.fonts/
 cd ~
-rm UbuntuMono
+rm -rf UbuntuMono
 
 echo ""
 echo ""
@@ -121,5 +116,13 @@ install git-delta
 wget https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb
 sudo dpkg -i git-delta_0.17.0_amd64.deb
 rm git-delta_0.17.0_amd64.deb
+
+
+# install i3-sortlock
+cd ~
+mkdir Programming
+cd Programming
+git clone git@github.com:malcx95/i3-sortlock.git
+cd ~
 
 echo "Don't forget to set the theme in lxappearance"
