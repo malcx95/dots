@@ -10,8 +10,7 @@ sleep 1
 cd Pictures
 mkdir -p wallpapers
 cd ~
-echo "Remember to download at least one wallpaper and put it in ~/Pictures/wallpapers/"
-sleep 1
+read -p "Remember to download at least one wallpaper and put it in ~/Pictures/wallpapers/. Press enter to continue."
 
 # # Elevate to root and install the latest git
 sudo ls > /dev/null
@@ -25,7 +24,7 @@ git config --global user.email "trekommafem2@gmail.com"
 
 
 # install packages
-sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev autorandr
 
 sudo apt install thunar
 sudo apt install -y build-essential cmake python3-dev python-is-python3 python3-pip mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
@@ -117,3 +116,6 @@ git clone git@github.com:malcx95/i3-sortlock.git
 cd ~
 
 echo "Don't forget to set the theme in lxappearance"
+echo "Don't forget to set up autorandr"
+echo "If you have a HiDPi screen, please create an ~/.Xresources file with the following content:"
+echo "Xft.dpi: 200 (or whichever DPI you want)"

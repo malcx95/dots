@@ -36,6 +36,13 @@ alert = #A54242
 disabled = #707880
 """
 
+DUNST_CONFIG = """
+[global]
+min_icon_size = 48
+font = Ubuntu 12
+
+"""
+
 HOME = Path.home()
 
 WALLPAPER_DIR = str(HOME / 'Pictures/wallpapers')
@@ -141,7 +148,7 @@ def apply_color(hue):
         background_alt=rgb_to_hex(color_unfocused),
         primary=rgb_to_hex(color_primary),
     )
-    with open("$HOME" / ".config/polybar/colors.conf", "w") as f:
+    with open(HOME / ".config/polybar/colors.conf", "w") as f:
         f.write(polybar_config_text)
 
     subprocess.run(["i3-msg", "reload"])
