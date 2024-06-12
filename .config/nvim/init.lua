@@ -4,6 +4,18 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
+-- Change copilot key to Ctrl+I
+vim.keymap.set('i', '<A-Enter>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
+-- Other keymaps
+vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = 'Toggle [T]ree' })
+vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { desc = 'Find [F]ile' })
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -55,6 +67,8 @@ require('lazy').setup({
 
   'nvim-tree/nvim-web-devicons',
   'ntpeters/vim-better-whitespace',
+  'jose-elias-alvarez/null-ls.nvim',
+  'MunifTanjim/prettier.nvim',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -242,6 +256,15 @@ require('lazy').setup({
   },
 
   {
+    "anurag3301/nvim-platformio.lua",
+    dependencies = {
+        { "akinsho/nvim-toggleterm.lua" },
+        { "nvim-telescope/telescope.nvim" },
+        { "nvim-lua/plenary.nvim" },
+    },
+  },
+
+  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -291,7 +314,6 @@ vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
-vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
@@ -345,6 +367,65 @@ require('telescope').setup {
     },
   },
 }
+
+
+-- Setup null-ls
+local null_ls = require("null-ls")
+
+local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
+local event = "BufWritePre" -- or "BufWritePost"
+local async = event == "BufWritePost"
+
+null_ls.setup({
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.keymap.set("n", "<Leader>f", function()
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+      end, { buffer = bufnr, desc = "[lsp] format" })
+
+      -- format on save
+      vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+      vim.api.nvim_create_autocmd(event, {
+        buffer = bufnr,
+        group = group,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr, async = async })
+        end,
+        desc = "[lsp] format on save",
+      })
+    end
+
+    if client.supports_method("textDocument/rangeFormatting") then
+      vim.keymap.set("x", "<Leader>f", function()
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+      end, { buffer = bufnr, desc = "[lsp] format" })
+    end
+  end,
+})
+
+
+-- Setup prettier
+local prettier = require("prettier")
+prettier.setup({
+  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+  filetypes = {
+    "css",
+    "cpp",
+    "c",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+})
+
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -577,7 +658,7 @@ require("autoclose").setup({
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
@@ -619,6 +700,20 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+
+-- make clangd work for esp32
+require 'lspconfig'.clangd.setup {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--query-driver=/home/malcolm/.platformio/packages/toolchain-xtensa-esp32s3/bin/xtensa-esp32s3-elf-g++*"
+  },
+  on_attach = on_attach,
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+}
+
+
 -- empty setup using defaults
 require("nvim-tree").setup()
 
@@ -639,7 +734,7 @@ cmp.setup {
     completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-n>'] = cmp.mapping.select_next_item(),
+    --['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-k>'] = cmp.mapping.select_prev_item(),
@@ -650,24 +745,24 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    -- ['<Tab>'] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expand_or_locally_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   else
-    --     fallback()
-    --   end
-    -- end, { 'i', 's' }),
-    -- ['<S-Tab>'] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.locally_jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
   },
   sources = {
     { name = 'nvim_lsp' },

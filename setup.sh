@@ -24,9 +24,8 @@ git config --global user.email "trekommafem2@gmail.com"
 
 
 # install packages
-sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev autorandr
+sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev autorandr thunar ripgrep postgresql maim
 
-sudo apt install thunar
 sudo apt install -y build-essential cmake python3-dev python-is-python3 python3-pip mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
 
 pip install imageio numpy scipy matplotlib opencv-python
@@ -115,7 +114,18 @@ cd Programming
 git clone git@github.com:malcx95/i3-sortlock.git
 cd ~
 
+
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+
+# install prettier
+sudo npm install -g prettier
+
+
 echo "Don't forget to set the theme in lxappearance"
 echo "Don't forget to set up autorandr"
 echo "If you have a HiDPi screen, please create an ~/.Xresources file with the following content:"
 echo "Xft.dpi: 200 (or whichever DPI you want)"
+echo "Don't forget to set the Ubuntu Mono Nerd font in the settings!"

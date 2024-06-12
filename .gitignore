@@ -164,3 +164,12 @@ log.txt
 logs/
 texput.log
 work/
+Work/
+.clock.json
+.config/Slack/
+.config/solaar/
+.fzf.bash
+.fzf/
+.mtpaint
+.platformio/
+error

@@ -79,6 +79,7 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
 export PATH=$PATH:$HOME/pycharm/pycharm-community-2022.2.2/bin
+export PATH=$PATH:$HOME/.platformio/penv/bin/
 
 export ARDUINO_DIR=/home/malcolm/.arduino15
 export JSON_CPP_DIR=/home/malcolm/Programming/json
@@ -90,3 +91,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 export SCREEN_SCALE=2.0
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
