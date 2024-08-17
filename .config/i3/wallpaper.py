@@ -8,6 +8,7 @@ import matplotlib.colors as colors
 import numpy as np
 
 from pathlib import Path
+from typing import List
 
 I3_COLORS_TEMPLATE = """
 set $bgcolor    {focus}
@@ -51,7 +52,7 @@ THEME_CACHE_DIR = HOME / ".cache/theme"
 THEME_CACHE = THEME_CACHE_DIR / "theme.json"
 
 SWITCH_TIME = 3600
-REFRESH_TIME = 3
+REFRESH_TIME = 1
 
 SATURATION_THRESHOLD = 0.1
 VALUE_THRESHOLD = 70
@@ -72,14 +73,24 @@ PRIMARY_SATURATION = 0.5
 PRIMARY_VALUE = 0.6
 
 
-def switch_wallpaper():
-    files = None
+def switch_wallpaper(wallpaper_index, direction=None):
+    files: List[str] = []
     for root, _, fs in os.walk(WALLPAPER_DIR):
         files = [os.path.join(root, f) for f in fs]
 
-    wallpaper = random.choice(files)
+    if not files:
+        return 0
+
+    if direction is None:
+        wallpaper_index = random.choice(list(range(len(files))))
+    else:
+        wallpaper_index = (wallpaper_index + direction) % len(files)
+
+    wallpaper = files[wallpaper_index]
     subprocess.run(['feh', '--bg-fill', wallpaper], stdout=subprocess.PIPE)
     change_theme(wallpaper)
+
+    return wallpaper_index
 
 
 def calculate_hue(wallpaper_path):
@@ -162,13 +173,23 @@ def rgb_to_hex(rgb):
 def main():
     THEME_CACHE_DIR.mkdir(exist_ok=True)
     time = SWITCH_TIME
+    wallpaper_index = 0
     while True:
         if time >= SWITCH_TIME:
             time = 0
-            switch_wallpaper()
+            wallpaper_index = switch_wallpaper(wallpaper_index)
         elif os.path.isfile(SWITCH_FILE):
+            content = ""
+            with open(SWITCH_FILE) as f:
+                content = f.read()
+
+            if "n" in content:
+                wallpaper_index = switch_wallpaper(wallpaper_index, 1)
+            elif "p" in content:
+                wallpaper_index = switch_wallpaper(wallpaper_index, -1)
+            else:
+                wallpaper_index = switch_wallpaper(wallpaper_index)
             os.remove(SWITCH_FILE)
-            switch_wallpaper()
 
         time += REFRESH_TIME
         t.sleep(REFRESH_TIME)

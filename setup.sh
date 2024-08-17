@@ -124,6 +124,17 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo npm install -g prettier
 
 
+git clone https://github.com/noctuid/zscroll
+cd zscroll
+sudo python3 setup.py install
+
+mkdir -p ~/.config/polybar/scripts
+wget https://raw.githubusercontent.com/PrayagS/polybar-spotify/master/get_spotify_status.sh -O ~/.config/polybar/scripts/get_spotify_status.sh
+chmod +x ~/.config/polybar/scripts/get_spotify_status.sh
+wget https://raw.githubusercontent.com/PrayagS/polybar-spotify/master/scroll_spotify_status.sh -O ~/.config/polybar/scripts/scroll_spotify_status.sh
+chmod +x ~/.config/polybar/scripts/scroll_spotify_status.sh
+
+
 echo "Don't forget to set the theme in lxappearance"
 echo "Don't forget to set up autorandr"
 echo "If you have a HiDPi screen, please create an ~/.Xresources file with the following content:"
