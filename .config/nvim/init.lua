@@ -4,14 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
--- Change copilot key to Ctrl+I
-vim.keymap.set('i', '<A-Enter>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
-vim.g.copilot_no_tab_map = true
-
 -- Other keymaps
 vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = 'Toggle [T]ree' })
 vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { desc = 'Find [F]ile' })
@@ -58,9 +50,6 @@ require('lazy').setup({
   -- Auto close brackets
   'm4xshen/autoclose.nvim',
 
-  -- Github copilot
-  'github/copilot.vim',
-
   'https://gitlab.com/spade-lang/spade-vim',
 
   'nvim-tree/nvim-tree.lua',
@@ -104,18 +93,6 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
-  },
-
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    opts = {
-    },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 
   -- Useful plugin to show you pending keybinds.
