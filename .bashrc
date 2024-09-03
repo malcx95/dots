@@ -89,7 +89,6 @@ export CATCH_DIR=/home/malcolm/Programming/Catch2
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source ~/.local/share/icons-in-terminal/icons_bash.sh
 export SCREEN_SCALE=2.0
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -24,7 +24,7 @@ git config --global user.email "trekommafem2@gmail.com"
 
 
 # install packages
-sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev autorandr thunar ripgrep postgresql maim
+sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev autorandr thunar ripgrep postgresql maim scrot
 
 sudo apt install -y build-essential cmake python3-dev python-is-python3 python3-pip mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
 
@@ -46,7 +46,7 @@ echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-relea
 sudo apt update
 sudo apt install i3
 
-sudo apt install -y xorg lightdm lightdm-gtk-greeter i3status i3blocks dmenu feh materia-gtk-theme papirus-icon-theme lxappearance fonts-font-awesome playerctl picom rofi
+sudo apt install -y xorg lightdm lightdm-gtk-greeter i3status i3blocks dmenu feh materia-gtk-theme papirus-icon-theme lxappearance fonts-font-awesome playerctl picom rofi light
 rm keyring.deb
 
 # install neovim

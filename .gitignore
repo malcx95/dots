@@ -173,3 +173,7 @@ Work/
 .mtpaint
 .platformio/
 error
+.config/X-Cinnamon-xdg-terminals.list
+.config/xdg-terminals.list
+snap/
+zscroll/
